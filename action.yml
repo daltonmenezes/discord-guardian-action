@@ -1,0 +1,30 @@
+name: 'Discord Guardian'
+description: 'An action that fetches the list of malicious domains on Discord in different providers and creates/updates a JSON file with them from time to time'
+
+author: Dalton Menezes <daltonmenezes@outlook.com>
+
+branding:
+  icon: 'shield'
+  color: 'green'
+
+inputs:
+  name:
+    description: 'Author name to be commited'
+    required: true
+  email:
+    description: 'Author email to be commited'
+    required: true
+  directory:
+    description: 'Directory to save the domain list'
+    required: false
+    default: '.'
+  fileName:
+    description: 'Name of the output JSON file containing the domain list'
+    required: false
+    default: 'domains'
+  myDomainList:
+    description: 'Path to a JSON array list of domains to be joined in the domains.json'
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

@@ -1,0 +1,44 @@
+{
+  "name": "discord-guardian-action",
+  "description": "An action that fetches the list of malicious domains on Discord in different providers and creates/updates a JSON file with them from time to time",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "git@github.com:daltonmenezes/discord-guardian-action.git",
+  "author": "Dalton Menezes <daltonmenezes@outlook.com>",
+  "scripts": {
+    "build": "ncc build src/index.ts --license licenses.txt --source-map",
+    "prepare": "husky install"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "axios": "^0.25.0",
+    "fs-extra": "^10.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^17.0.13",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "@vercel/ncc": "^0.33.1",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": ">=10",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --quiet --fix"
+    ]
+  },
+  "eslintIgnore": [
+    "dist"
+  ]
+}
