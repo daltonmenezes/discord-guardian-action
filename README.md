@@ -47,7 +47,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Discord Guardian Action
-        uses: actions/discord-guardian-action@v1
+        uses: actions/discord-guardian-action@v1.1.0
         id: discord
         with:
           name: 'Your Name'
