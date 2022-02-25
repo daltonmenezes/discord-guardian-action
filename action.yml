@@ -1,5 +1,5 @@
-name: 'Discord Guardian'
-description: 'An action that fetches the list of malicious domains on Discord in different providers and creates/updates a JSON file with them from time to time'
+name: 'Discord Guardian Action'
+description: 'Fetches the list of malicious domains on Discord in different providers and creates/updates a JSON file with them from time to time'
 
 author: Dalton Menezes <daltonmenezes@outlook.com>
 
