@@ -2,6 +2,7 @@ import * as core from '@actions/core'
 
 import { haveDifferentItemsFromTheFirstSet } from 'shared/utils'
 import { MESSAGES } from 'shared/constants'
+import { exec } from 'actions'
 import { join } from 'path'
 
 import {
@@ -16,6 +17,8 @@ const ROOT_DIR = process.env.GITHUB_WORKSPACE
 
 async function main() {
   try {
+    exec('git pull')
+
     const name = core.getInput('name')
     const email = core.getInput('email')
     const directory = core.getInput('directory')
