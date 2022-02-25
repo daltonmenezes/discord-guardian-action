@@ -1,7 +1,7 @@
 {
   "name": "discord-guardian-action",
   "description": "An action that fetches the list of malicious domains on Discord in different providers and creates/updates a JSON file with them from time to time",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "dist/index.js",
   "repository": "git@github.com:daltonmenezes/discord-guardian-action.git",
   "author": "Dalton Menezes <daltonmenezes@outlook.com>",

@@ -9133,24 +9133,18 @@ const REGEX = {
 
 
 
-// EXTERNAL MODULE: external "path"
-var external_path_ = __nccwpck_require__(1017);
-;// CONCATENATED MODULE: external "child_process"
-const external_child_process_namespaceObject = require("child_process");
 ;// CONCATENATED MODULE: ./src/actions/git/commit-and-push.ts
 
 function commitAndPush({ author }) {
     const commands = [
         `git config user.name "${author.name}"`,
         `git config user.email ${author.email}`,
+        'git pull',
         'git add .',
         `git commit -m "chore(domains): update list"`,
         'git push origin main',
     ].join(' ; ');
-    (0,external_child_process_namespaceObject.execSync)(commands, {
-        stdio: 'inherit',
-        cwd: process.cwd(),
-    });
+    exec(commands);
 }
 
 ;// CONCATENATED MODULE: ./src/actions/domains/remove-allowed-from-list.ts
@@ -9291,10 +9285,24 @@ function fetchDomainList() {
 
 
 
+;// CONCATENATED MODULE: external "child_process"
+const external_child_process_namespaceObject = require("child_process");
+;// CONCATENATED MODULE: ./src/actions/exec/index.ts
+
+function exec(commands) {
+    (0,external_child_process_namespaceObject.execSync)(commands, {
+        stdio: 'inherit',
+        cwd: process.cwd(),
+    });
+}
+
 ;// CONCATENATED MODULE: ./src/actions/index.ts
 
 
 
+
+// EXTERNAL MODULE: external "path"
+var external_path_ = __nccwpck_require__(1017);
 ;// CONCATENATED MODULE: ./src/index.ts
 var src_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -9310,10 +9318,12 @@ var src_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argu
 
 
 
+
 const ROOT_DIR = process.env.GITHUB_WORKSPACE;
 function main() {
     return src_awaiter(this, void 0, void 0, function* () {
         try {
+            exec('git pull');
             const name = core.getInput('name');
             const email = core.getInput('email');
             const directory = core.getInput('directory');
